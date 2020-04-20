@@ -292,7 +292,7 @@ class CustomSecurityManager(SupersetSecurityManager):
             # get access token
             my_token = self.oauth_tokengetter()[0]
             # get referenceDataUserId
-            reference_user = self.appbuilder.sm.oauth_remotes[provider].get(
+            reference_user = self.appbuilder.sm.oauth_remotes[provider].post(
                 "oauth/check_token", data={"token": my_token})
             reference_data_user_id = reference_user.data["referenceDataUserId"]
             # get user details
